@@ -1,0 +1,49 @@
+body {
+  margin: 0;
+  background-color: #e2d8cf;
+  text-align: center;
+}
+
+h1 {
+  margin: 0;
+}
+
+header {
+  width: 100vw;
+  min-height: 100px;
+  height: max-content;
+  background-color: #7a8694;
+  font-family: "Oswald";
+  font-size: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+}
+
+#searchTerm {
+  font-size: 20px;
+  font-family: "Oswald";
+  padding: 5px;
+  width: 400px;
+  text-align: center;
+  margin: 20px;
+}
+
+#cycle {
+  transform: scale(0.25);
+  fill:url(#MyGradient);
+}
+
+@media (max-width: 800px){
+  #headTitle {
+    display: none;
+  }
+}
+
+@media (max-width: 500px){
+  #searchTerm {
+    width: 80vw;
+  }
+}
