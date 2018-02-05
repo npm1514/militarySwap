@@ -1,0 +1,8 @@
+<div id="header" >
+  <span id="headTitle">Military Swap</span><span id="headDash" ng-if="currentCity"> - </span>
+  <span ng-if="currentCity">
+    <a ui-sref="homeByLocation({location: currentCity._id})">
+      <span id="headCity">{{currentCity.location}}</span>
+    </a>
+  </span>
+</div>

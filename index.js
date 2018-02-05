@@ -1,14 +1,14 @@
 var express = require('express'),
-bodyParser = require('body-parser'),
-cors = require('cors'),
-mongoose = require('mongoose'),
-session = require('express-session'),
-passport = require('passport');
+    bodyParser = require('body-parser'),
+    cors = require('cors'),
+    mongoose = require('mongoose'),
+    session = require('express-session'),
+    passport = require('passport');
 
-var cityCtrl = require('./controllers/cityCtrl');
-var catCtrl = require('./controllers/catCtrl');
-var adCtrl = require('./controllers/adCtrl');
-var peopleCtrl = require('./controllers/peopleCtrl');
+var locationCtrl = require('./controllers/locationCtrl'),
+    catCtrl = require('./controllers/catCtrl'),
+    adCtrl = require('./controllers/adCtrl'),
+    peopleCtrl = require('./controllers/peopleCtrl');
 
 var config = require('./config/config.js');
 
@@ -17,15 +17,15 @@ var app = express();
 app.use(cors());
 app.use(session({
   secret: config.secret
-}))
+}));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded());
 app.use(express.static(__dirname + '/public'));
 
-app.post('/city', cityCtrl.create);
-app.get('/city', cityCtrl.read);
-app.put('/city/:id', cityCtrl.update);
-app.delete('/city/:id', cityCtrl.delete);
+app.post('/location', locationCtrl.create);
+app.get('/location', locationCtrl.read);
+app.put('/location/:id', locationCtrl.update);
+app.delete('/location/:id', locationCtrl.delete);
 
 app.post('/cat', catCtrl.create);
 app.get('/cat', catCtrl.read);
@@ -50,5 +50,5 @@ mongoose.connection.once('open', function(){
 });
 
 app.listen(config.port, function(){
-  console.log("listening to port" + config.port);
+  console.log("listening to port " + config.port);
 });

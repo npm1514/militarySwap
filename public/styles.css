@@ -3,46 +3,93 @@ body {
   background-color: #e2d8cf;
   text-align: center;
 }
-
-h1 {
-  margin: 0;
+a {
+  text-decoration: none;
+  color: black;
 }
 
-header {
+#header {
   width: 100vw;
-  min-height: 100px;
-  height: max-content;
-  background-color: #7a8694;
+  height: 50px;
+  padding: 15px 0;
+  background-color: #ccc;
   font-family: "Oswald";
-  font-size: 30px;
+  font-size: 40px;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
   color: white;
+  text-shadow: 2px 2px #8d8d8d;
 }
-
+#headDash {
+  margin: 0 5px;
+}
+#headCity {
+  color: white;
+}
 #searchTerm {
   font-size: 20px;
   font-family: "Oswald";
   padding: 5px;
   width: 400px;
   text-align: center;
-  margin: 20px;
+  margin: 20px 0;
 }
-
-#cycle {
-  transform: scale(0.25);
-  fill:url(#MyGradient);
+#homeContainer {
+  width: 100vw;
+  height: max-content;
 }
-
+#homeContainer select, #homeContainer button {
+  display: block;
+  width: 300px;
+  height: 50px;
+  margin: auto;
+  display: block;
+  background-color: transparent;
+  border: 0;
+  font-size: 30px;
+}
+#homeContainer button {
+  border: 2px solid limegreen;
+  margin-top: 5px;
+}
+#homeContainer button:hover {
+  cursor: pointer;
+}
+#footerMod {
+  height: 100px;
+  width: 100vw;
+  background-color: #ccc;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#changeLocBtn {
+  font-size: 10px;
+  margin: auto;
+  text-decoration: none;
+}
+#bodyMod {
+  height: max-content;
+  width: 100vw;
+  min-height: 80vh;
+}
 @media (max-width: 800px){
-  #headTitle {
+  #headTitle, #headDash {
     display: none;
   }
 }
 
 @media (max-width: 500px){
+  #searchTerm {
+    width: 80vw;
+  }
+  #headCity {
+    font-size: 20px;
+  }
+}
+@media (max-device-width: 500px){
   #searchTerm {
     width: 80vw;
   }

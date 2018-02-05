@@ -1,0 +1,23 @@
+<div id="homeContainer" ng-init="getLocations()">
+    <select
+      ng-change="myFunc(selectedCountry, 'country')"
+      ng-model="selectedCountry"
+      ng-options="ct.country for ct in allLocations | orderBy: '-country'"
+    ><option label="Country"></option></select>
+    <select
+      ng-change="myFunc(selectedState, 'state')"
+      ng-model="selectedState"
+      ng-options="st.state for st in selectedCountry.states | orderBy: 'state'"
+      ng-if="selectedCountry"
+    ><option label="State/Province"></option></select>
+    <select
+      ng-change="myFunc(selectedLocation, 'location')"
+      ng-model="selectedLocation"
+      ng-options="loc.location for loc in selectedState.locations | orderBy: 'location'"
+      ng-if="selectedState"
+    ><option label="Location"></option></select>
+    <button
+      ng-click="selectLocation(selectedLocation)"
+      ng-if="selectedLocation"
+    >Select Location</button>
+</div>

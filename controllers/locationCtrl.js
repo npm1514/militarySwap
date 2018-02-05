@@ -1,9 +1,9 @@
-var cityModel = require('./../models/cityModel.js');
+var locationModel = require('./../models/locationModel.js');
 
 module.exports = {
   create: function(req, res) {
-    var city = new cityModel(req.body);
-    city.save(function(err, result){
+    var location = new locationModel(req.body);
+    location.save(function(err, result){
       if (err) {
         res.send(err);
       }
@@ -11,7 +11,7 @@ module.exports = {
     });
   },
   read: function(req, res) {
-    cityModel
+    locationModel
     .find(req.query)
     .exec(function (err, result) {
       if (err) {
@@ -21,7 +21,7 @@ module.exports = {
     });
   },
   getOne: function(req, res) {
-    cityModel
+    locationModel
     .findById(req.params.id)
     .exec(function (err, result) {
       if (err) {
@@ -31,7 +31,7 @@ module.exports = {
     });
   },
   update: function(req, res){
-    cityModel
+    locationModel
     .findByIdAndUpdate(req.params.id, req.body, function(err, result){
       if (err) {
         res.send(err);
@@ -40,7 +40,7 @@ module.exports = {
     });
   },
   delete: function(req, res){
-    cityModel
+    locationModel
     .findByIdAndRemove(req.params.id, req.body, function(err, result){
       if (err) {
         res.send(err);

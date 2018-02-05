@@ -6,27 +6,17 @@
     <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300|Oswald" rel="stylesheet">
   </head>
   <body ng-controller="mainCtrl">
-    <header>
-      <svg height="63" width="65">
-        <path id="cycle" xmlns="http://www.w3.org/2000/svg" d="M212.4,120.7c-7.6,0-13.7,6.1-13.7,13.7c-0.1,39.8-32.2,71.9-72,72c-39.7-0.1-71.9-32.2-72-72   c0.1-39.7,32.2-71.9,72-72c5.8,0,11.4,0.9,16.9,2.2l-19.8,22.6c-5.2,6-3,11.5,4.9,12.2l71,6.8c7.9,0.8,12.9-4.9,11.1-12.7   l-16.1-69.5c-1.8-7.7-7.5-9.2-12.8-3.2L163.4,42c-11.4-4.5-23.7-7-36.7-7c-54.9,0-99.4,44.5-99.4,99.4c0,54.9,44.5,99.4,99.4,99.4   c54.9,0,99.4-44.5,99.4-99.4C226.1,126.9,220,120.7,212.4,120.7z"/>
-        <defs>
-          <linearGradient id="MyGradient">
-            <stop offset="0%" stop-color="red" />
-            <stop offset="50%" stop-color="#fff" />
-            <stop offset="100%" stop-color="blue" />
-          </linearGradient>
-        </defs>
-      </svg>
-      <h1><span id="headTitle">Military Swap - </span>{{currentCity}}</h1>
-    </header>
-    <form ng-submit="getBySearch(searchTerm)">
-      <input id="searchTerm" type="text" ng-model="searchTerm" placeholder="Search Here">
-    </form>
-    <ui-view></ui-view>
+    <header-mod></header-mod>
+    <side-bar-mod></side-bar-mod>
+    <body-mod></body-mod>
+    <footer-mod></footer-mod>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.3.1/angular-ui-router.min.js"></script>
-    <script src="app.js" type="text/javascript"></script>
-    <script src="mainCtrl.js" type="text/javascript"></script>
-    <script src="mainServ.js" type="text/javascript"></script>
+    <script src="app/app.js" type="text/javascript"></script>
+    <script src="directives/js/headerMod.js" type="text/javascript"></script>
+    <script src="directives/js/bodyMod.js" type="text/javascript"></script>
+    <script src="directives/js/footerMod.js" type="text/javascript"></script>
+    <script src="app/mainCtrl.js" type="text/javascript"></script>
+    <script src="app/mainServ.js" type="text/javascript"></script>
   </body>
 </html>
