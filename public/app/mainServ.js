@@ -1,5 +1,4 @@
-angular.module("militarySwap")
-.service("mainServ", function($http) {
+angular.module("militarySwap").service("mainServ", function($http) {
   // this.getBySearch = function(searchTerm){
   //   $http({
   //     method: 'GET',
@@ -24,4 +23,12 @@ angular.module("militarySwap")
       return res.data;
     })
   };
+  this.getAllAds = function(){
+    return $http({
+      method: 'GET',
+      url: '/ad'
+    }).then(function(res){
+      return res;
+    })
+  }
 });

@@ -4,6 +4,7 @@ angular.module("militarySwap").controller("mainCtrl", function($scope, $state, m
   $scope.selectedCountry = "";
   $scope.selectedState = "";
   $scope.selectedLocation = "";
+  $scope.locationSelected = false;
 
   //set vars
   var loc = window.location || {};
@@ -15,7 +16,7 @@ angular.module("militarySwap").controller("mainCtrl", function($scope, $state, m
   var cookies = document.cookie || "";
   cookies.split('; ').map(function(x){return cookieObj[x.split('=')[0]] = x.split('=')[1]});
 
-  //set functions
+
   $scope.getLocations = function(){
     mainServ.getLocations()
     .then(function(res){
@@ -41,35 +42,45 @@ angular.module("militarySwap").controller("mainCtrl", function($scope, $state, m
     .then(function(res){
       if(res.length){
         $scope.currentCity = res[0];
-        console.log(res[0]);
-        window.location.href = origin + '/#/' + res[0]._id;
-        document.cookie = "location=" + res[0]._id;
+        $scope.locationSelected = true;
       }
     });
   };
+  $scope.deleteLocationCookie = function(){
+    document.cookie = 'location=;';
+    $scope.currentCity.location = 'All Locations';
+  }
+
+  $scope.getAllAds = function(){
+    mainServ.getAllAds()
+    .then(function(res){
+      $scope.data = res;
+    })
+  }
+
 
 
   //get autolocation
-  if(hash == "#/chooseLocation") $scope.getLocations();
-  else if(cookieObj.location){
-    if(cookieObj.location != undefined){
-      mainServ.getOneLocation(cookieObj.location)
-      .then(function(res){
-        if(res.length){
-          $scope.currentCity = res[0];
-          window.location.href = origin + '/#/' + res[0]._id;
-        } else $scope.getLocations();
-      });
-    }
-  } else if (hashSplit.length > 1){
-    if(hashSplit[1] != undefined){
-      mainServ.getOneLocation(hashSplit[1])
-      .then(function(res){
-        if(res.length){
-          $scope.currentCity = res[0];
-          document.cookie = "location=" + res[0]._id;
-        } else $scope.getLocations();
-      });
-    }
-  } else $scope.getLocations();
+  // if(hash == "#/chooseLocation") $scope.getLocations();
+  // else if(cookieObj.location){
+  //   if(cookieObj.location != undefined){
+  //     mainServ.getOneLocation(cookieObj.location)
+  //     .then(function(res){
+  //       if(res.length){
+  //         $scope.currentCity = res[0];
+  //         window.location.href = origin + '/#/' + res[0]._id;
+  //       } else $scope.getLocations();
+  //     });
+  //   }
+  // } else if (hashSplit.length > 1){
+  //   if(hashSplit[1] != undefined){
+  //     mainServ.getOneLocation(hashSplit[1])
+  //     .then(function(res){
+  //       if(res.length){
+  //         $scope.currentCity = res[0];
+  //         document.cookie = "location=" + res[0]._id;
+  //       } else $scope.getLocations();
+  //     });
+  //   }
+  // } else $scope.getLocations();
 });

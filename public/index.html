@@ -4,18 +4,20 @@
     <title>Military Swap</title>
     <link rel="stylesheet" href="styles.css" >
     <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300|Oswald" rel="stylesheet">
+
   </head>
   <body ng-controller="mainCtrl">
-    <header-mod></header-mod>
-    <side-bar-mod></side-bar-mod>
-    <body-mod></body-mod>
-    <footer-mod></footer-mod>
+    <ui-view></ui-view>
+    <!-- <header-mod></header-mod>
+    <bodmod></bodmod>
+    <footer-mod></footer-mod> -->
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.3.1/angular-ui-router.min.js"></script>
     <script src="app/app.js" type="text/javascript"></script>
-    <script src="directives/js/headerMod.js" type="text/javascript"></script>
-    <script src="directives/js/bodyMod.js" type="text/javascript"></script>
-    <script src="directives/js/footerMod.js" type="text/javascript"></script>
+    <!-- <script src="directives/js/headerMod.js" type="text/javascript"></script>
+    <script src="directives/js/bodmod.js" type="text/javascript"></script>
+    <script src="directives/js/footerMod.js" type="text/javascript"></script> -->
+    <script src="directives/js/chooseLocation.js" type="text/javascript"></script>
     <script src="app/mainCtrl.js" type="text/javascript"></script>
     <script src="app/mainServ.js" type="text/javascript"></script>
   </body>
